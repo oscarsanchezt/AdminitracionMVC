@@ -15,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.border.LineBorder;
 
 public class Vista {
 
@@ -28,6 +29,7 @@ public class Vista {
     private JSeparator separator_1;
     private JPanel panel_1;
     private JLabel lblNewLabel;
+    private JLabel lblNewLabel_1;
 
     public Vista() {
         initialize();
@@ -55,7 +57,7 @@ public class Vista {
         panel.setLayout(null);
         // BOTON AÑADIR USUARIO
         btnNewButton = new JButton("Añadir");
-        btnNewButton.setBounds(53, 171, 78, 28);
+        btnNewButton.setBounds(53, 159, 78, 28);
         panel.add(btnNewButton);
         btnNewButton.setFont(new Font("Dialog", Font.BOLD, 13));
         btnNewButton.setForeground(new Color(156, 246, 255));
@@ -65,13 +67,12 @@ public class Vista {
         scrollPane = new JScrollPane();
         scrollPane.setBounds(12, 240, 172, 185);
         panel.add(scrollPane);
-        scrollPane.setViewportBorder(null);
+        scrollPane.setViewportBorder(new LineBorder(new Color(1, 12, 120)));
         JList<String> list = new JList<>(listModel);
         scrollPane.setViewportView(list);
         list.setFont(new Font("Dialog", Font.BOLD, 15));
         list.setForeground(new Color(156, 246, 255));
         list.setBackground(new Color(53, 132, 228));
-        list.setBorder(null);
         
         separator = new JSeparator();
         separator.setBackground(new Color(156, 246, 255));
@@ -87,6 +88,13 @@ public class Vista {
         lblNewLabel.setIcon(new ImageIcon(Vista.class.getResource("/IMAGENES/icons8-cambiar-usuario-masculino-80.png")));
         lblNewLabel.setBounds(53, 12, 93, 79);
         panel.add(lblNewLabel);
+        
+        lblNewLabel_1 = new JLabel("Añadir Nuevo Usuario");
+        lblNewLabel_1.setForeground(new Color(156, 246, 255));
+        lblNewLabel_1.setBackground(new Color(156, 246, 255));
+        lblNewLabel_1.setFont(new Font("Dialog", Font.BOLD, 15));
+        lblNewLabel_1.setBounds(12, 113, 172, 32);
+        panel.add(lblNewLabel_1);
         
         panel_1 = new JPanel();
         panel_1.setBackground(new Color(1, 12, 120));

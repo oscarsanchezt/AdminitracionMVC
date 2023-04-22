@@ -4,16 +4,18 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import javax.swing.JLabel;
-import javax.swing.JSeparator;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
 
 public class page1 extends JPanel {
+	private static final long serialVersionUID = 1L;
 	private JTextField textFieldNombre;
 	private DefaultListModel<String> listModel;
 	private JTextField textField;
@@ -108,6 +110,7 @@ public class page1 extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nombre = textFieldNombre.getText();
+				String telefono = textField.getText();
 				listModel.addElement(nombre); // Agregar el nombre ingresado al modelo de datos
 				setVisible(false);
 			}

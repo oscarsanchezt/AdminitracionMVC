@@ -12,6 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class Vista {
 
@@ -20,6 +23,11 @@ public class Vista {
     private JPanel content;
     private JButton btnNewButton;
     private DefaultListModel<String> listModel;
+    private JPanel panel;
+    private JSeparator separator;
+    private JSeparator separator_1;
+    private JPanel panel_1;
+    private JLabel lblNewLabel;
 
     public Vista() {
         initialize();
@@ -27,6 +35,7 @@ public class Vista {
 
     private void initialize() {
         frame = new JFrame();
+        frame.getContentPane().setBackground(new Color(1, 12, 120));
         frame.setBackground(new Color(26, 95, 180));
         frame.setBounds(100, 100, 745, 464);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,27 +45,53 @@ public class Vista {
         content.setBackground(new Color(53, 132, 228));
         content.setBounds(257, 0, 488, 437);
         frame.getContentPane().add(content);
+        
+        listModel = new DefaultListModel<String>();
+        
+        panel = new JPanel();
+        panel.setBackground(new Color(26, 95, 180));
+        panel.setBounds(66, 0, 189, 437);
+        frame.getContentPane().add(panel);
+        panel.setLayout(null);
         // BOTON AÑADIR USUARIO
         btnNewButton = new JButton("Añadir");
-        btnNewButton.setBounds(82, 134, 81, 21);
-        frame.getContentPane().add(btnNewButton);
+        btnNewButton.setBounds(53, 171, 78, 28);
+        panel.add(btnNewButton);
         btnNewButton.setFont(new Font("Dialog", Font.BOLD, 13));
         btnNewButton.setForeground(new Color(156, 246, 255));
         btnNewButton.setBackground(new Color(53, 132, 228));
         btnNewButton.setBorderPainted(false);
         // PANEL + LISTA DE USUARIOS
         scrollPane = new JScrollPane();
-        scrollPane.setBounds(44, 187, 172, 185);
-        frame.getContentPane().add(scrollPane);
+        scrollPane.setBounds(12, 240, 172, 185);
+        panel.add(scrollPane);
         scrollPane.setViewportBorder(null);
-        
-        listModel = new DefaultListModel<String>();
         JList<String> list = new JList<>(listModel);
+        scrollPane.setViewportView(list);
         list.setFont(new Font("Dialog", Font.BOLD, 15));
         list.setForeground(new Color(156, 246, 255));
         list.setBackground(new Color(53, 132, 228));
         list.setBorder(null);
-        scrollPane.setViewportView(list);
+        
+        separator = new JSeparator();
+        separator.setBackground(new Color(156, 246, 255));
+        separator.setBounds(12, 211, 172, 10);
+        panel.add(separator);
+        
+        separator_1 = new JSeparator();
+        separator_1.setBackground(new Color(156, 246, 255));
+        separator_1.setBounds(12, 103, 172, 10);
+        panel.add(separator_1);
+        
+        lblNewLabel = new JLabel("");
+        lblNewLabel.setIcon(new ImageIcon(Vista.class.getResource("/IMAGENES/icons8-cambiar-usuario-masculino-80.png")));
+        lblNewLabel.setBounds(53, 12, 93, 79);
+        panel.add(lblNewLabel);
+        
+        panel_1 = new JPanel();
+        panel_1.setBackground(new Color(1, 12, 120));
+        panel_1.setBounds(0, 0, 67, 437);
+        frame.getContentPane().add(panel_1);
         
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
